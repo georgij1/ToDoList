@@ -62,7 +62,7 @@ input{
 
 .todo-item {
     display: flex;
-    width: 500px;
+    width: 259px;
     min-height: 50px;
     border: 1px solid black;
     border-radius: 5px;
@@ -95,7 +95,6 @@ input{
 }
 
 .buttons input {
-    width: 25px;
     height: 25px;
     cursor: pointer;
 }
@@ -116,5 +115,18 @@ input{
     }
     to {
         opacity: 0;
+    }
+}
+
+@media(min-width: 768px){
+    .todo-item {
+        display: flex;
+        width: 500px;
+        min-height: 50px;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: orange;
     }
 }
