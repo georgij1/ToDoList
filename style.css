@@ -1,8 +1,7 @@
-html, body {
+body {
     margin: 0;
-    height: 100%;
-    background-color: cadetblue;
-    font-family: 'Oswald', sans-serif;
+    background-color: #dbdbdb;
+    font-family: cursive;
 }
 
 h1 {
@@ -15,6 +14,8 @@ h1 {
     justify-content: center;
     align-items: center;
     width: 100%;
+    position: relative;
+    top: 150px;
 }
 
 .add-todo-wrapper {
@@ -26,49 +27,38 @@ h1 {
     border-radius: 5px;
 }
 
-.input-wrapper {
-    width: 80%;
-}
-
-.input-wrapper input {
-    width: 100%;
-    height: 25px;
-    border-radius: 11px;
+input {
+    width: 276px;
+    height: 56px;
+    border-radius: 10px;
     outline: none;
-    border: 0;
+    border: 2px solid blue;
     padding: 0 10px;
+    font-size: 15px;
+    font-family: cursive;
 }
 
-.button-wrapper {
-    width: 20%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-input{
-    outline: none;
-    font-size: 30px;
-}
-
-.button-wrapper button {
-    width: 100%;
-    background-color: springgreen;
-    outline: none;
-    border: none;
-    height: 25px;
-    padding-left: 3px;
+button {
+    width: 300px;
+    background-color: blue;
+    border: 3px solid blue;
     cursor: pointer;
+    height: 60px;
+    color: #FFF;
+    border-radius: 10px;
 }
 
 .todo-item {
     display: flex;
     width: 259px;
-    min-height: 50px;
-    border: 1px solid black;
-    border-radius: 5px;
+    flex-direction: column;
+    min-height: 84px;
+    border: 3px solid blue;
+    border-radius: 10px;
     margin-bottom: 15px;
     padding: 10px;
-    background-color: orange;
+    background-color: blue;
+    box-shadow: 0 0 10px blue;
 }
 
 .todo-item.checked{
@@ -81,17 +71,19 @@ input{
 }
 
 .description {
-    width: 80%;
-    display: flex;
+    width: 100%;
     align-items: center;
     color: floralwhite;
+    text-align: center;
 }
 
 .buttons {
-    width: 20%;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: end;
+    gap: 30px;
+    padding: 26px 0 10px;
 }
 
 .buttons input {
@@ -100,13 +92,53 @@ input{
 }
 
 .buttons button {
-    outline: none;
-    border: none;
     background-color: crimson;
     color: #ffffff;
     cursor: pointer;
-    height: 25px;
+    height: 35px;
+    border: 2px solid crimson;
     border-radius: 5px;
+}
+
+.header {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    background: aliceblue;
+    margin: 0 auto;
+    padding: 10px 0;
+    z-index: 9;
+}
+
+.btn-complete {
+    outline: none;
+    border: 3px solid mediumseagreen;
+    background-color: mediumseagreen;
+    color: #ffffff;
+    cursor: pointer;
+    height: 29px;
+    border-radius: 5px;
+    width: 151px;
+    text-align: center;
+}
+
+.text_help {
+    font-style: italic;
+    display: none;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #ccbdbd;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #dbdbdb;
+    border-radius: 20px;
+    border: 6px solid #a0a0a5;
 }
 
 @keyframes opacity {
@@ -120,13 +152,57 @@ input{
 
 @media(min-width: 768px){
     .todo-item {
-        display: flex;
-        width: 500px;
-        min-height: 50px;
-        border: 1px solid black;
-        border-radius: 5px;
-        margin-bottom: 15px;
-        padding: 10px;
-        background-color: orange;
+        width: 600px;
+    }
+
+    .add-todo-wrapper {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    input {
+        cursor: pointer;
+    }
+
+    input:hover {
+        box-shadow: 0 0 10px blue;
+    }
+
+    button:hover {
+        transition-delay: 0.2s;
+        background: #FFF;
+        color: black;
+        box-shadow: 0 0 10px blue;
+    }
+
+    .btn-complete:hover {
+        background: #FFF;
+        color: black;
+        transition-delay: 0.2s;
+        box-shadow: 0 0 10px mediumseagreen;
+    }
+
+    .btn-delete:hover {
+        box-shadow: 0 0 10px crimson;
+    }
+}
+
+@media (min-width: 1024px) {
+    input {
+        width: 600px;
+    }
+
+    .todo-item {
+        width: 450px;
+    }
+
+    .todos-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 }

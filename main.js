@@ -17,7 +17,7 @@ const createTemplate = (task, index) => {
         <div class="todo-item ${task.completed ? 'checked' : ''}">
              <div class="description">${task.description}</div>
              <div class="buttons">
-                <input onclick="completedTask(${index})" class="btn-complete" type="checkbox" ${task.completed ? 'checked' : ''}> 
+                <div onclick="completedTask(${index})" class="btn-complete" ${task.completed ? 'checked' : ''}>Сделано</div>
                 <button onclick="deleteTask(${index})" class="btn-delete">Удалить</button>
             </div>       
         </div>
@@ -77,3 +77,44 @@ const deleteTask = index => {
       fillHtmlList();
   }, 500)
 }
+
+let add_task_btn = document.querySelector('#add-task-btn');
+
+let todos_wrapper = document.querySelector('.todos-wrapper');
+let text_help = document.querySelector('.text_help');
+
+if (todos_wrapper.clientHeight == 0) {
+    text_help.style.display = "block"
+}
+
+else {
+    text_help.style.display = "none"
+}
+
+add_task_btn.addEventListener('click', function () {
+    if (todos_wrapper.clientHeight == 0) {
+        text_help.style.display = "block"
+    }
+
+    else {
+        text_help.style.display = "none"
+    }
+})
+
+let btn_delete = document.querySelector('.btn-delete');
+
+btn_delete.addEventListener('click', function () {
+    if (todos_wrapper.clientHeight == 0) {
+        text_help.style.display = "block"
+    }
+
+    else {
+        text_help.style.display = "none"
+    }
+})
+
+add_task_btn.addEventListener('click' , function () {
+    if (deskTaskInput.value == "") {
+        console.log('Вы ничего не ввели')
+    }
+})
